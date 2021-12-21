@@ -1,16 +1,36 @@
-## Overview
-Short project description
-## Building
-How to launch a project, what is needed for this
+# Pool Connection
 
-## Troubleshooting
-Describes what problems can be faced and how to solve them
+`PoolConnection` - is a pool of connections for connections to the physical data source that this Pool object
+represents.
 
-## Release Notes
-Can be found in [RELEASE_NOTES](RELEASE_NOTES.md).
+You can initialize `PoolConnrction` with:
 
-## Authors
-* Bohdan Bodnar - [b-bodnar](https://github.com/b-bodnar)
+- `properties.application` file when invoke default constructor
+
+<pre><code>
+url=jdbc:postgresql://localhost:5433/study
+username=postgres
+password=postgres
+initialPoolSize=10
+driverClassName=org.postgresql.Driver
+<hr />
+var dataSource = mre ConnectionPool();
+</code></pre>
+
+- `PoolConfig` class when invoke constructor with parameter
+
+<pre><code>
+        var config = PoolConfig.builder()
+                .url(URL_CONNECTION)
+                .username(USERNAME)
+                .password(PASSWORD)
+                .initialPoolSize(10)
+                .driverClassName("org.postgresql.Driver")
+                .build();
+
+        var dataSource = new ConnectionPool(config);
+</code></pre>
 
 ## License
+
 This project is Apache License 2.0 - see the [LICENSE](LICENSE) file for details
